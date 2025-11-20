@@ -1,0 +1,105 @@
+<% layout("layouts/boilerplate") %>
+<style>
+  .category-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .category-item {
+    text-align: center;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 0px;
+    
+  }
+
+  /* Hover zoom */
+  .category-item:hover {
+    transform: scale(1.1);
+  }
+
+  /* Highlight selected category with black underline */
+  .active-category {
+    border-bottom: 3px solid black;
+    padding-bottom: 4px;
+  }
+</style>
+
+<div class="category-container">
+
+  <a href="/listings/category?category=Trending" 
+     class="category-item <%= category === 'Trending' ? 'active-category' : '' %>">
+    <div><i class="fa-solid fa-fire"></i></div>
+    <p>Trending</p>
+  </a>
+
+  <a href="/listings/category?category=Rooms" 
+     class="category-item <%= category === 'Rooms' ? 'active-category' : '' %>">
+    <div><i class="fa-solid fa-bed"></i></div>
+    <p>Rooms</p>
+  </a>
+
+  <a href="/listings/category?category=Iconic Cities" 
+     class="category-item <%= category === 'Iconic Cities' ? 'active-category' : '' %>">
+    <div><i class="fa-solid fa-mountain-city"></i></div>
+    <p>Iconic Cities</p>
+  </a>
+
+  <a href="/listings/category?category=Mountains" 
+     class="category-item <%= category === 'Mountains' ? 'active-category' : '' %>">
+    <div><i class="fa-solid fa-mountain"></i></div>
+    <p>Mountains</p>
+  </a>
+
+  <a href="/listings/category?category=Castles" 
+     class="category-item <%= category === 'Castles' ? 'active-category' : '' %>">
+    <div><i class="fa-brands fa-fort-awesome"></i></div>
+    <p>Castles</p>
+  </a>
+
+  <a href="/listings/category?category=Amazing Pool" 
+     class="category-item <%= category === 'Amazing Pool' ? 'active-category' : '' %>">
+    <div><i class="fa-solid fa-person-swimming"></i></div>
+    <p>Amazing Pools</p>
+  </a>
+
+  <a href="/listings/category?category=Camping" 
+     class="category-item <%= category === 'Camping' ? 'active-category' : '' %>">
+    <div><i class="fa-solid fa-campground"></i></div>
+    <p>Camping</p>
+  </a>
+
+  <a href="/listings/category?category=Farmers" 
+     class="category-item <%= category === 'Farmers' ? 'active-category' : '' %>">
+    <div><i class="fa-solid fa-cow"></i></div>
+    <p>Farmers</p>
+  </a>
+
+  <a href="/listings/category?category=Arctic" 
+     class="category-item <%= category === 'Arctic' ? 'active-category' : '' %>">
+    <div><i class="fa-regular fa-snowflake"></i></div>
+    <p>Arctic</p>
+  </a>
+
+</div>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+<% for(let listing of allCategories){%>
+    <a href="/listings/<%= listing._id%>"class="listing-link">
+    <div class="card h-100 listing-card">
+  <img src="<%= listing.image.url%>" class="card-img-top" alt="listing image" style="height: 20rem;">
+  <div class="card-img-overlay">WanderLust</div>
+  <div class="card-body">
+    <p class="card-text">
+        <b><%= listing.title%></b><br>
+        &#8377;<%= listing.price.toLocaleString("en-IN") %> /night
+    </p>
+  </div>
+</div>
+</a>
+   <%}%>
+   </div>

@@ -1,0 +1,87 @@
+<% layout("layouts/boilerplate") %>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h3>Create a New Listing</h3>
+
+      <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input name="listing[title]" id="title" placeholder="Enter Title" type="text" class="form-control" required />
+          <div class="valid-feedback">
+            Valid Title
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea name="listing[description]" id="description" placeholder="Enter description" class="form-control"
+            required></textarea>
+          <div class="invalid-feedback">
+            Description Required
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Image link</label>
+          <input name="listing[image]" id="image" placeholder="Enter image URL/Link" type="file" class="form-control" />
+          required
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input name="listing[price]" id="price" placeholder="1200" type="number" class="form-control" required />
+            <div class="invalid-feedback">
+              Price Required
+            </div>
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+
+            <input name="listing[country]" id="country" placeholder="India" type="text" class="form-control" required />
+            <div class="invalid-feedback">
+              Country Name Required
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input name="listing[location]" id="location" placeholder="Mumbai" type="text" class="form-control"
+            required />
+          <div class="invalid-feedback">
+            Location Required
+          </div>
+        </div>
+       <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <input list="category-list"
+         id="category" 
+        name="listing[category]" 
+        placeholder="Search category..."
+        required
+        >
+
+<datalist id="category-list">
+    <option value="Trending"></option>
+    <option value="Rooms"></option>
+    <option value="Iconic Cities"></option>
+    <option value="Mountains"></option>
+    <option value="Castles"></option>
+    <option value="Amazing Pool"></option>
+    <option value="Camping"></option>
+    <option value="Farmers"></option>
+    <option value="Arctic"></option>
+</datalist>
+
+ <div class="invalid-feedback">
+           Category Required
+          </div>
+       </div>
+
+
+        <button class="btn btn-dark add-btn">Add</button>
+      </form>
+    </div>
+  </div>

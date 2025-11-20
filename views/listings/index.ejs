@@ -1,0 +1,147 @@
+<% layout("layouts/boilerplate") %>
+<style>
+  #filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px 0;
+    align-items: center;
+  }
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
+  button div {
+    font-size: 20px;
+  }
+  button p {
+    margin: 3px 0 0 0;
+    font-size: 14px;
+  }
+  .tax-info{
+    display: none;
+  }
+  .tax-toggle{
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+  }
+</style>
+
+<div id="filters">
+
+  <form action="/listings/category" method="get">
+    <button name="category" value="Trending">
+      <div><i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p>
+    </button>
+  </form>
+
+  <form action="/listings/category" method="get">
+    <button name="category" value="Rooms">
+      <div><i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+    </button>
+  </form>
+
+  <form action="/listings/category" method="get">
+    <button name="category" value="Iconic Cities">
+      <div><i class="fa-solid fa-mountain-city"></i></div>
+      <p>Iconic Cities</p>
+    </button>
+  </form>
+
+  <form action="/listings/category" method="get">
+    <button name="category" value="Mountains">
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <p>Mountains</p>
+    </button>
+  </form>
+
+  <form action="/listings/category" method="get">
+    <button name="category" value="Castles">
+      <div><i class="fa-brands fa-fort-awesome"></i></div>
+      <p>Castles</p>
+    </button>
+  </form>
+
+  <form action="/listings/category" method="get">
+    <button name="category" value="Amazing Pool">
+      <div><i class="fa-solid fa-person-swimming"></i></div>
+      <p>Amazing Pool</p>
+    </button>
+  </form>
+
+  <form action="/listings/category" method="get">
+    <button name="category" value="Camping">
+      <div><i class="fa-solid fa-campground"></i></div>
+      <p>Camping</p>
+    </button>
+  </form>
+
+  <form action="/listings/category" method="get">
+    <button name="category" value="Farmers">
+      <div><i class="fa-solid fa-cow"></i></div>
+      <p>Farmers</p>
+    </button>
+  </form>
+
+  <form action="/listings/category" method="get">
+    <button name="category" value="Arctic">
+      <div><i class="fa-regular fa-snowflake"></i></div>
+      <p>Arctic</p>
+    </button>
+  </form>
+<div class="tax-toggle">
+  <div class="form-check-reverse form-switch">
+  <input 
+  class="form-check-input" 
+  type="checkbox"
+   role="switch"
+    id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault">
+    Display Total after Taxes
+  </label>
+</div>
+</div>
+
+</div>
+
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+<% for(let listing of allListings){%>
+    <a href="/listings/<%= listing._id%>" class="listing-link">
+    <div class="card h-100 listing-card">
+  <img src="<%= listing.image.url%>" class="card-img-top" alt="listing image" style="height: 20rem;">
+  <div class="card-img-overlay">CozyQuest</div>
+  <div class="card-body">
+    <p class="card-text">
+        <b><%= listing.title%></b><br>
+        &#8377;<%= listing.price.toLocaleString("en-IN") %> /night
+        <i class="tax-info">&nbsp; +18% GST</i>
+    </p>
+  </div>
+</div>
+</a>
+   <%}%>
+   </div>
+
+
+   <script>
+    let taxSwitch=document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click",()=>{
+      let taxInfo=document.getElementsByClassName("tax-info");
+      for(let info of taxInfo){
+          if(info.style.display!="inline"){
+        info.style.display="inline";
+      }else{
+        info.style.display="none";
+      }
+      }
+     
+    })
+   </script>
