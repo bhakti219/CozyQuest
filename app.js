@@ -2,8 +2,6 @@ if(process.env.NODE_ENV!="production"){
   require('dotenv').config();
 }
 
-
-console.log(process.env.SECRET)
 const express=require("express");
 const app=express();
 const mongoose=require("mongoose");
@@ -51,7 +49,7 @@ app.engine("ejs",ejsmate);
 app.use(express.static(path.join(__dirname,"/public")));
 
 
-  console.log("Mongoose client:", mongoose.connection.getClient());
+console.log("Mongoose client:", mongoose.connection.getClient());
 const store= MongoStore.create({
 mongoUrl:dbURL,
  collectionName: "sessions",
@@ -62,7 +60,7 @@ mongoUrl:dbURL,
 const sessionOptions={
 
   store:store,
-  secret:process.env.secret,
+  secret:process.env.Secret,
   resave:false,
   saveUninitialized:true,
   cookie:{
