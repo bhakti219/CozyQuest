@@ -6,7 +6,7 @@ A full-stack web application inspired by Airbnb — built to help users explore,
 
 ## 🔗 Deployed Website
 
-✨ **Live Demo:**(https://cozyquest.onrender.com) 
+✨ **Live Demo:**(https://cozyquest.onrender.com/listings) 
 
 ---
 
