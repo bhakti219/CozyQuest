@@ -60,7 +60,7 @@ mongoUrl:dbURL,
 const sessionOptions={
 
   store:store,
-  secret:process.env.Secret,
+  secret:process.env.SECRET,
   resave:false,
   saveUninitialized:true,
   cookie:{
