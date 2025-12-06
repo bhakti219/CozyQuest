@@ -122,4 +122,4 @@ Pull requests are welcome. Open issues for bugs or improvements.
 
 ## 💛 Author
 
-Built with love by **Bhakti**.
+Built with love and lots of learnings by **Bhakti**.
