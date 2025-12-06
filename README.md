@@ -109,7 +109,6 @@ Fully compatible with:
 
 * Render
 * Railway
-* Vercel (server)
 * AWS EC2
 
 ---
